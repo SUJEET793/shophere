@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Shophere</string>
+    <string name="appDescription">buy grocery,vegetable, water bottles etc</string>
+
+
+<!--     drawer variable to toggle-->
+    <string name="open_drawer">open drawer menu</string>
+    <string name="close_drawer">close drawer menu</string>
+</resources>
