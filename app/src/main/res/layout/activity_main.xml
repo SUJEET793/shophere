@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--here we use the drawerlayout which will help us to use the navigation  -->
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -28,20 +29,16 @@
         android:elevation="4dp"
         app:title="@string/app_name">
     </androidx.appcompat.widget.Toolbar>
-
-    <!--frame layout is going to hold all the recyclerview-->
-    <FrameLayout
+    <!--   all the item will show here -->
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview_item"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/main_list_view">
 
-     <!--   all the item will show here     -->
+    </ListView>
 
-    </FrameLayout>
 </LinearLayout>
+
 
 <!--    adding the navigation drawer here -->
     <com.google.android.material.navigation.NavigationView

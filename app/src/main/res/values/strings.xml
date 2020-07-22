@@ -6,4 +6,5 @@
 <!--     drawer variable to toggle-->
     <string name="open_drawer">open drawer menu</string>
     <string name="close_drawer">close drawer menu</string>
+    <string name="grocery_corner">grocery corner</string>
 </resources>
