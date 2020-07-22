@@ -22,16 +22,17 @@
             android:id="@+id/main_image"
             />
     </androidx.cardview.widget.CardView>
+
     <TextView
+        android:id="@+id/main_item_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="vegitable"
 
-        android:textSize="22sp"
-        android:textColor="@color/cardview_dark_background"
-       android:layout_centerHorizontal="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:id="@+id/main_item_name"/>
+        android:text="vegetable"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="22sp" />
 
     <ImageView
         android:layout_width="22dp"
