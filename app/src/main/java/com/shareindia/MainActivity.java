@@ -8,7 +8,9 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
          toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+         setSupportActionBar(toolbar);
 
         // reference of the main layout ie drawer layout
         drawer =findViewById(R.id.drawer_layout);
@@ -71,8 +73,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
+
                 Main_list_item main_list_item=main_list_items.get(position);
-                Toast.makeText(MainActivity.this, main_list_item.getMain_item_name()+"\n is selected", Toast.LENGTH_SHORT).show();
+                String cat_name=main_list_item.getMain_item_name();
+                Intent intent =new Intent(MainActivity.this,Catagories.class);
+                intent.putExtra("cat_name",cat_name);
+                startActivity(intent);
             }
         });
 

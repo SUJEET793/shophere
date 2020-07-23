@@ -9,13 +9,19 @@
         android:roundIcon="@drawable/myicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<!--        categories Activity which is added later for all the categories-->
+        <activity android:name=".Catagories"
+            android:parentActivityName=".MainActivity" >
+
+        </activity>
+        <!-- splash Activity -->
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> <!-- main activity -->
         <activity android:name=".MainActivity">
 
         </activity>

@@ -3,9 +3,11 @@
     <string name="appDescription">buy grocery,vegetable, water bottles etc</string>
 
 
-<!--     drawer variable to toggle-->
+    <!--     drawer variable to toggle-->
     <string name="open_drawer">open drawer menu</string>
     <string name="close_drawer">close drawer menu</string>
     <string name="grocery_corner">grocery corner</string>
     <string name="friuts_vegetables">fruits and vegetables</string>
+    <string name="catogaries">Catogaries</string>
+    <string name="cat_menu_search">search</string>
 </resources>

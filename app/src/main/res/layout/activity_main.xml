@@ -50,7 +50,7 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Catogaries"
+        android:text="@string/catogaries"
         android:gravity="center_horizontal"
         android:textSize="22sp"
         android:textColor="#1976D2"/>
