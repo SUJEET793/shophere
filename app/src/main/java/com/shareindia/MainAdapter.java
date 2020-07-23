@@ -36,7 +36,7 @@ public class MainAdapter extends ArrayAdapter<Main_list_item> {
       Main_list_item current_main_item= getItem(position);
 
 //        taking the refence of both the item in the main-list-item.xml
-        ImageView main_item_image=listItemView.findViewById(R.id.main_image);
+        ImageView main_item_image=listItemView.findViewById(R.id.main_item_image);
         TextView main_item_name=listItemView.findViewById(R.id.main_item_name);
 
         main_item_image.setImageResource(current_main_item.getMain_item_image());

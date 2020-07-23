@@ -29,14 +29,45 @@
         android:elevation="4dp"
         app:title="@string/app_name">
     </androidx.appcompat.widget.Toolbar>
-    <!--   all the item will show here -->
-    <ListView
+
+
+<!--   this carouselview code -->
+    <com.synnapps.carouselview.CarouselView
+        android:id="@+id/carouselView"
         android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:fillColor="#FFFFFFFF"
+        app:pageColor="#00000000"
+        app:radius="6dp"
+        app:slideInterval="3000"
+        app:strokeColor="#FF777777"
+        app:strokeWidth="1dp"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"/>
+    <TextView
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/main_list_view">
-
-    </ListView>
-
+        android:text="Catogaries"
+        android:gravity="center_horizontal"
+        android:textSize="22sp"
+        android:textColor="#1976D2"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"/>
+    <GridView
+        android:layout_margin="16dp"
+        android:id="@+id/gridview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:numColumns="2"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical">
+    </GridView>
 </LinearLayout>
 
 
