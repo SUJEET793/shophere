@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     private CarouselView carouselView;
 
-    int[] sampleImages={R.drawable.carousel_image,R.drawable.carousel_image,R.drawable.vejitable};
+    int[] sampleImages={R.drawable.carousel_image,R.drawable.carousel_image,R.drawable.vegetable};
 
 
     @Override
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         toggle.syncState();
 
 //        creating the arraylist of type Main_list_item
-        final ArrayList<Main_list_item> main_list_items  =assign_main_item();
+        final ArrayList<Main_list_item> main_list_items=assign_main_item();
 
 //
 //        adapter knows how to create list items for each item in the list.
@@ -94,7 +94,8 @@ public class MainActivity extends AppCompatActivity {
     ImageListener imageListener = new ImageListener() {
         @Override
         public void setImageForPosition(int position, ImageView imageView) {
-            imageView.setImageResource(sampleImages[position]);
+           imageView.setImageResource(sampleImages[position]);
+            Toast.makeText(MainActivity.this, "carouselView clicked"+position, Toast.LENGTH_SHORT).show();
         }
         };
 
