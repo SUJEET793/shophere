@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="150dp"
+    xmlns:ndroid="http://schemas.android.com/tools"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="15dp"
+    android:paddingTop="10dp"
+ >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingBottom="10dp"
+     >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardCornerRadius="50dp"
+            >
+
+            <ImageView
+                android:id="@+id/cat_item_image"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:src="@drawable/vegetable"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:background="@drawable/backgroundgreen"/>
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/cat_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:text="water bottel  cold drink"
+
+            />
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:id="@+id/cat_button"
+            android:background="@drawable/button_back"
+            android:text="Add"
+            android:paddingLeft="12dp"
+            android:paddingTop="5dp"
+
+            android:textColor="@color/primaryTextColor"
+            />
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+

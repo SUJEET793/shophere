@@ -57,17 +57,10 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"/>
-    <GridView
-        android:layout_margin="16dp"
-        android:id="@+id/gridview"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:numColumns="2"
-        android:verticalSpacing="10dp"
-        android:horizontalSpacing="10dp"
-        android:scrollbarStyle="outsideOverlay"
-        android:scrollbars="vertical">
-    </GridView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>
 
 
