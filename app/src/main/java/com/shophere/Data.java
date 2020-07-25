@@ -1,4 +1,6 @@
-package com.shareindia;
+package com.shophere;
+
+import com.shophere.R;
 
 import java.util.ArrayList;
 

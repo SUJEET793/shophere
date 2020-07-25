@@ -1,13 +1,12 @@
-package com.shareindia;
+package com.shophere;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
-import java.util.Objects;
+import com.shophere.R;
 
 public class SplashActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.shareindia;
+package com.shophere;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.Menu;
@@ -19,9 +18,10 @@ import android.view.View;
 
 import android.widget.ImageView;
 
-import android.widget.Toast;
+import android.widget.SearchView;
 
 
+import com.shophere.R;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
@@ -108,11 +108,28 @@ public class MainActivity extends AppCompatActivity implements MainAdapter.ItemC
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu,menu);
+//        reference of the serch item
+        MenuItem searchItem=menu.findItem(R.id.search);
+        SearchView searchView= (SearchView) searchItem.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
         return true;
     }
 }

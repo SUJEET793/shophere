@@ -8,7 +8,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:fitsSystemWindows="true"
-    tools:context="com.shareindia.MainActivity"
+    tools:context="com.shophere.com.shophere.MainActivity"
 
     tools:openDrawer="start">
 

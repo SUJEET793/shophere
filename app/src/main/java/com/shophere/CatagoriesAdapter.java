@@ -1,4 +1,4 @@
-package com.shareindia;
+package com.shophere;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,20 +6,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.shophere.R;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class CatagoriesAdapter extends RecyclerView.Adapter<CatagoriesAdapter.Categories_Holder> {
 
     private static final String LOG_TAG = CatagoriesAdapter.class.getSimpleName();
 
-    ArrayList<Catagories_items> catagories_items;
+    List<Catagories_items> catagories_items;
 
     private LayoutInflater mInflater;
     private static ItemClickListener mClickListener;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.shareindia">
+    package="com.shophere">
 
     <application
         android:allowBackup="true"
@@ -10,19 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 <!--        categories Activity which is added later for all the categories-->
-        <activity android:name=".Catagories"
-            android:parentActivityName=".MainActivity" >
+        <activity android:name="com.shophere.Catagories"
+            android:parentActivityName="com.shophere.MainActivity" >
 
         </activity>
         <!-- splash Activity -->
-        <activity android:name=".SplashActivity">
+        <activity android:name="com.shophere.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity> <!-- main activity -->
-        <activity android:name=".MainActivity">
+        <activity android:name="com.shophere.MainActivity">
 
         </activity>
     </application>

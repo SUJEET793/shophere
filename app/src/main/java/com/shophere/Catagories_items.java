@@ -1,4 +1,4 @@
-package com.shareindia;
+package com.shophere;
 // this is the class which refence of the xml file .eg categaries_item.xml
 public class Catagories_items {
 

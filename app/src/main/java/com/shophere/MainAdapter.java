@@ -1,32 +1,37 @@
-package com.shareindia;
+package com.shophere;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import com.shophere.R;
 
-public class MainAdapter extends RecyclerView.Adapter <MainAdapter.MainAdapter_Holder> {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainAdapter extends RecyclerView.Adapter <MainAdapter.MainAdapter_Holder> implements Filterable {
     private static final String LOG_TAG = MainAdapter.class.getSimpleName();
 
-    ArrayList<Main_list_item> main_list_items;
+    List<Main_list_item> main_list_items;
+    List<Main_list_item> main_list_items_full;
+
     private LayoutInflater mInflater;
     private static ItemClickListener mClickListener;
 
-    public MainAdapter(Context context, ArrayList<Main_list_item> main_list_items) {
+    public MainAdapter(Context context, List<Main_list_item> main_list_items) {
         this.mInflater = LayoutInflater.from(context);
         this.main_list_items = main_list_items;
+//        to create a new list
+        this.main_list_items_full=new ArrayList<>(main_list_items);
+
     }
 
     @NonNull
@@ -48,6 +53,8 @@ public class MainAdapter extends RecyclerView.Adapter <MainAdapter.MainAdapter_H
     public int getItemCount() {
         return main_list_items.size();
     }
+
+
 
 
     public static class MainAdapter_Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -78,4 +85,41 @@ public class MainAdapter extends RecyclerView.Adapter <MainAdapter.MainAdapter_H
     public interface ItemClickListener {
         void onItemClick(View view, int position);
     }
+
+//    the method which we have to override for implementing the filterable
+//    interface
+
+    @Override
+    public Filter getFilter() {
+        return main_list_filter;
+    }
+    private Filter main_list_filter =new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Main_list_item> filteredList=new ArrayList<>();
+            if(constraint ==null || constraint.length()==0){
+                filteredList.addAll(main_list_items_full);
+            }
+            else {
+                String filterPattern=constraint.toString().toLowerCase().trim();
+
+                for(Main_list_item item :main_list_items_full){
+                    if(item.getMain_item_name().toLowerCase().contains(filterPattern)){
+                        filteredList.add(item);
+                    }
+                }
+            }
+            FilterResults results=new FilterResults();
+            results.values=filteredList;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            main_list_items.clear();
+            main_list_items.addAll((List) results.values);
+            notifyDataSetChanged();
+
+        }
+    };
 }

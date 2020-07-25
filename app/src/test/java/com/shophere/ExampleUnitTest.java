@@ -1,4 +1,4 @@
-package com.shareindia;
+package com.shophere;
 
 import org.junit.Test;
 
