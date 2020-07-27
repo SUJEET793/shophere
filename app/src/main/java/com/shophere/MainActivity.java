@@ -21,6 +21,8 @@ import android.widget.ImageView;
 import android.widget.SearchView;
 
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.shophere.R;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
@@ -40,11 +42,18 @@ public class MainActivity extends AppCompatActivity implements MainAdapter.ItemC
 
     int[] sampleImages={R.drawable.carousel_image,R.drawable.carousel_image,R.drawable.vegetable};
 
-
+// date base reference
+    DatabaseReference reference;
+    MainMember mainMember;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        creating the refence of the class MianMember
+//        mainMember =new MainMember()
+        // data base reference
+        reference= FirebaseDatabase.getInstance().getReference().child("MainMember");
 
          toolbar = findViewById(R.id.toolbar);
          setSupportActionBar(toolbar);

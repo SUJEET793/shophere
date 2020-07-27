@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "427455801157",
+    "firebase_url": "https://shophere793.firebaseio.com",
+    "project_id": "shophere793",
+    "storage_bucket": "shophere793.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:427455801157:android:fdbade739852b85bc8c02c",
+        "android_client_info": {
+          "package_name": "com.shophere"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "427455801157-nsgu3e2k3t7cg8m4ltfkesfa39tvt4sd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shophere",
+            "certificate_hash": "7d8f331ee6c0396a068a82a3c1e2aeaef16ec3db"
+          }
+        },
+        {
+          "client_id": "427455801157-mo8ggkp7f7lf6qn7i53i8q1lk4nrkm3b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDx-WsW6ijdHzmLsOJW77kaR30bWGagVOA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "427455801157-mo8ggkp7f7lf6qn7i53i8q1lk4nrkm3b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
