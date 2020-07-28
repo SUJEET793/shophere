@@ -12,7 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.shophere.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +27,10 @@ public class MainAdapter extends RecyclerView.Adapter <MainAdapter.MainAdapter_H
 
     private LayoutInflater mInflater;
     private static ItemClickListener mClickListener;
+    Context context;
 
     public MainAdapter(Context context, List<Main_list_item> main_list_items) {
+        this.context=context;
         this.mInflater = LayoutInflater.from(context);
         this.main_list_items = main_list_items;
 //        to create a new list
@@ -44,9 +48,11 @@ public class MainAdapter extends RecyclerView.Adapter <MainAdapter.MainAdapter_H
 
     @Override
     public void onBindViewHolder(@NonNull MainAdapter_Holder holder, int position) {
-
-        holder.main_name.setText(main_list_items.get(position).getMain_item_name());
-        holder.main_image.setImageResource(main_list_items.get(position).getMain_item_image());
+        Main_list_item currentPosition=main_list_items.get(position);
+        holder.main_name.setText(currentPosition.getMain_item_name());
+//        holder.main_image.setImageResource(main_list_items.get(position).getMain_item_image());
+        Picasso.get().
+                load(currentPosition.getMain_item_image()).into(holder.main_image);
     }
 
     @Override
