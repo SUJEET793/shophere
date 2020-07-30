@@ -8,10 +8,13 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -21,7 +24,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 public class Admin extends AppCompatActivity {
     Button main_chhose,cat_choose,main_upload,cat_upload;
@@ -33,6 +38,11 @@ public class Admin extends AppCompatActivity {
 //    the fire base reference
     private DatabaseReference mDatabaseReference;
     private StorageReference mStorageReference;
+    private ImageView imageView;
+    private ProgressBar mProgressBar;
+    private StorageTask mUploadTask;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +57,9 @@ public class Admin extends AppCompatActivity {
         main_item=findViewById(R.id.main_edit_name);
         cat_item=findViewById(R.id.cat_edit_item);
         cat_disc=findViewById(R.id.cat_edit_desc);
+        imageView=findViewById(R.id.image_view);
+        mProgressBar = findViewById(R.id.progress_bar);
+
 
 //        refence of the data base
         mStorageReference= FirebaseStorage.getInstance().getReference("main");
@@ -65,8 +78,11 @@ public class Admin extends AppCompatActivity {
         main_upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadData();
-
+                if (mUploadTask != null && mUploadTask.isInProgress()) {
+                    Toast.makeText(getApplicationContext(), "Upload in progress", Toast.LENGTH_SHORT).show();
+                } else {
+                    uploadData();
+                }
             }
         });
 
@@ -74,6 +90,7 @@ public class Admin extends AppCompatActivity {
         cat_choose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                openFilechhose();
 
             }
         });
@@ -96,7 +113,7 @@ public class Admin extends AppCompatActivity {
         if (requestCode==PICK_IMAGE_MAIN && resultCode==RESULT_OK
                 && data !=null && data.getData() !=null){
             mImageUri= data.getData();
-
+            Picasso.get().load(mImageUri).into(imageView);
 
         }
     }
@@ -109,28 +126,38 @@ public class Admin extends AppCompatActivity {
         if (mImageUri != null){
           StorageReference fileReference=mStorageReference
           .child(System.currentTimeMillis()+"."+getFileExtension(mImageUri));
-          fileReference.putFile(mImageUri)
+            mUploadTask =fileReference.putFile(mImageUri)
                   .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                       @Override
                       public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                          Main_list_item main_list_item=new Main_list_item(taskSnapshot
-                                  .getMetadata().getReference().getDownloadUrl().toString(),
+                          Handler handler = new Handler();
+                          handler.postDelayed(new Runnable() {
+                              @Override
+                              public void run() {
+                                  mProgressBar.setProgress(0);
+                              }
+                          }, 500);
+                          Toast.makeText(getApplicationContext(), "Upload successful", Toast.LENGTH_LONG).show();
+                          Main_list_item main_list_item=new Main_list_item(taskSnapshot.getMetadata().getReference().getDownloadUrl().toString(),
                                   main_item.getText().toString().trim());
                           String uploadId=mDatabaseReference.push().getKey();
-                          mDatabaseReference.child(uploadId).setValue("main");
+                          mDatabaseReference.child(uploadId).setValue(main_list_item);
 
                       }
                   })
+
                   .addOnFailureListener(new OnFailureListener() {
                       @Override
                       public void onFailure(@NonNull Exception e) {
+                          Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
 
                       }
                   })
                   .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                       @Override
                       public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
-                          Toast.makeText(Admin.this, "please wait", Toast.LENGTH_SHORT).show();
+                          double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                          mProgressBar.setProgress((int) progress);
                       }
                   });
         }

@@ -7,18 +7,18 @@
     tools:context=".Admin"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add main item "
         android:gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
     <Button
         android:id="@+id/main_choose_image"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Choose file"
 
@@ -29,30 +29,40 @@
         android:layout_height="wrap_content"
         android:hint="item name"
         android:gravity="center"/>
-       <Button
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:text="upload"
-           android:id="@+id/main_upload"/>
 
-    </LinearLayout>
-
-    <view
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-      />
-    <LinearLayout
+</LinearLayout>
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/catogoris_items"
-            android:gravity="center"/>
+        android:text="upload"
+        android:id="@+id/main_upload"/>
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp" />
+
+
+
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/catogoris_items"
+        android:gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <Button
             android:id="@+id/cat_choose_image"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Choose file"
             android:gravity="center"/>
@@ -62,19 +72,18 @@
             android:layout_height="wrap_content"
             android:hint="item name"
             android:gravity="center"/>
-        <EditText
-            android:id="@+id/cat_edit_desc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="add description"
-            android:gravity="center"/>
-        <Button
-            android:id="@+id/cat_upload"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="cat_upload"/>
 
     </LinearLayout>
-
+    <EditText
+        android:id="@+id/cat_edit_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="add description"
+        android:gravity="center"/>
+    <Button
+        android:id="@+id/cat_upload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="cat_upload"/>
 
 </LinearLayout>

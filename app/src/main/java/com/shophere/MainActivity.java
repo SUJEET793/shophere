@@ -65,13 +65,6 @@ public class MainActivity extends AppCompatActivity implements MainAdapter.ItemC
         NavigationView navigationView=findViewById(R.id.navigation);
         navigationView.setNavigationItemSelectedListener(this);
 
-
-////      this code helps us to hide a perticular item from the navigation
-//        Menu menu =navigationView.getMenu();
-//        MenuItem target = menu.findItem(R.id.login);
-//        target.setVisible(false);
-
-        //   navigation bar toogling functionality
         ActionBarDrawerToggle toggle =new ActionBarDrawerToggle(this,drawer,toolbar,
                 R.string.open_drawer,R.string.close_drawer);
         drawer.addDrawerListener(toggle);

@@ -13,6 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.shophere.R;
 import com.squareup.picasso.Picasso;
 
@@ -21,6 +25,8 @@ import java.util.List;
 
 public class MainAdapter extends RecyclerView.Adapter <MainAdapter.MainAdapter_Holder> implements Filterable {
     private static final String LOG_TAG = MainAdapter.class.getSimpleName();
+    DatabaseReference storageReference= FirebaseDatabase.getInstance().getReference("main");
+
 
     List<Main_list_item> main_list_items;
     List<Main_list_item> main_list_items_full;
@@ -51,8 +57,8 @@ public class MainAdapter extends RecyclerView.Adapter <MainAdapter.MainAdapter_H
         Main_list_item currentPosition=main_list_items.get(position);
         holder.main_name.setText(currentPosition.getMain_item_name());
 //        holder.main_image.setImageResource(main_list_items.get(position).getMain_item_image());
-        Picasso.get().
-                load(currentPosition.getMain_item_image()).into(holder.main_image);
+        Glide.with(context).load(currentPosition.getMain_item_image()).into(holder.main_image);
+
     }
 
     @Override
@@ -71,8 +77,7 @@ public class MainAdapter extends RecyclerView.Adapter <MainAdapter.MainAdapter_H
             super(itemView);
             this.main_image = itemView.findViewById(R.id.main_item_image);
             this.main_name = itemView.findViewById(R.id.main_item_name);
-            this.
-            itemView.setOnClickListener(this);
+            this.itemView.setOnClickListener(this);
         }
 
         @Override
